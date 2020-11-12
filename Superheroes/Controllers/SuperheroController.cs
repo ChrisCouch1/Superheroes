@@ -19,19 +19,19 @@ namespace Superheroes.Controllers
         // GET: HeroController
         public ActionResult Index()
         {
-            return View();
+            return View("/Views/Home/Index.cshtml");
         }
 
         // GET: HeroController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View("/Views/Superhero/Details.cshtml");
         }
 
         // GET: HeroController/Create
         public ActionResult Create()
         {
-            return View();
+            return View("/Views/Superhero/Create.cshtml");
         }
 
         // POST: HeroController/Create
