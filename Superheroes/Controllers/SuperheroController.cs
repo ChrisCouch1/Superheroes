@@ -29,8 +29,8 @@ namespace Superheroes.Controllers
         // GET: HeroController/Details/5
         public ActionResult Details(int id)
         {
-            var superheroes = _context.Superheroes.Where(s => s.Id == id).ToList();
-            return View(superheroes);
+            var superhero = _context.Superheroes.FirstOrDefault(s => s.Id == id);
+            return View(superhero);
         }
 
         // GET: HeroController/Create
@@ -59,8 +59,8 @@ namespace Superheroes.Controllers
         // GET: HeroController/Edit/5
         public ActionResult Edit(int id)
         {
-            var superheroes = _context.Superheroes.Where(s => s.Id == id);
-            return View(superheroes);
+            var superhero = _context.Superheroes.FirstOrDefault(s => s.Id == id);
+            return View(superhero);
         }
 
         // POST: HeroController/Edit/5
@@ -72,7 +72,7 @@ namespace Superheroes.Controllers
             {
                 _context.Update(superhero);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Edit));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -83,7 +83,7 @@ namespace Superheroes.Controllers
         // GET: HeroController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View("/Views/Superhero/Delete.cshtml");
+            return View();
         }
 
         // POST: HeroController/Delete/5
@@ -95,7 +95,7 @@ namespace Superheroes.Controllers
             {
                 _context.Remove(superhero);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Delete));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
